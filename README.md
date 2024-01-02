@@ -13,4 +13,7 @@ SECRET_KEY=<secret-key> # Random key would be used as the key for session
 GOOGLE_APPLICATION_CREDENTIALS=<path> # Path to GCP credential files
 BUCKET_NAME=<bucket-name>
 ```
-Update the above sample as required.
+Update the above sample as required and run the following command:
+```
+python3 main.py
+```
