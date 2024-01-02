@@ -1,0 +1,117 @@
+*{
+  text-align: center;
+}
+label {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input[type=file],input[type=text], input[type=password], input[type=email], input[type=tel] {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: solid 1px black;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #699ed3;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button{
+  width: 100%;
+  background-color: #63d739;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #034990;
+}
+
+body{
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(129, 224, 255);
+    padding: 20px;
+}
+
+.msg{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 4px 16px;
+  border-radius: 3px;
+  max-width: 50%;
+  max-height: 50%;
+  overflow-wrap: anywhere;
+}
+.success{
+  background-color: #63d739;
+}
+.error{
+  background-color: tomato;
+  color: white
+}
+form{
+  margin: auto;
+  width: 100%;
+  max-width: 500px;
+  background-color: rgb(234, 255, 180);
+  padding: 20px;
+  border-radius: 8px;
+}
+.btn{
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  margin: 5px;
+}
+.update{
+  background-color: blue;
+}
+.delete{
+  background-color: red;
+}
+
+table{
+  margin: auto;
+}
+
+th, td{
+  border: solid 1px black;
+  text-align: left;
+  word-wrap: break-word;
+  max-width: 500px;
+}
+
+.content{
+  text-align: center;
+}
+.inp-err{
+  color: red;
+}
+.safe{
+  background-color: #63d739;
+}

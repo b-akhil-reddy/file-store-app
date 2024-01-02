@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/static/main.css">
+  <script src="/static/form.js"></script>
+</head>
+<body>
+
+  <form enctype="multipart/form-data" data-location="/" action="/signup" method="post" onsubmit="return submitForm(event)">
+    <label>SIGN - UP</label> <br/>
+    <label for ="uname">USERNAME</label> <br/>
+        <input type="text" id="uname" name="uname" required/>
+        <span class="inp-err"></span>
+    <label for ="passwd">PASSWORD</label> <br/>
+        <input type="password" id="passwd" name="passwd" required/>
+        <span class="inp-err"></span>
+
+    <label for ="cpasswd">CONFIRM PASSWORD</label> <br/>
+        <input type="password" id="cpasswd" name="cpasswd" required/>
+        <span class="inp-err"></span>
+    <label for ="email">EMAIL</label> <br/>
+        <input type="email" id="email" name="email" required/>
+        <span class="inp-err"></span>
+    <label for ="phone">PHONE</label> <br/>
+        <input type="tel" id="phone" name="phone" required/>
+        <span class="inp-err"></span>
+    <input type="submit" value= "SIGN-UP"/>
+    <label>
+      Already have a account? <a href="/signin">Sign-in here</a>
+    </label>
+  </form>
+  <div id="msg"></div>
+  <script>
+    url = new URL(document.URL)
+    error = url.searchParams.get("error")
+    success = url.searchParams.get("success")
+    ele = document.getElementById("msg")
+    if(error){
+      ele.classList= "msg error"
+      ele.innerHTML = error
+    }
+    if(success){
+      ele.classList= "msg success"
+      ele.innerHTML = success
+    }
+    ele.onclick = () => {
+      ele.style.display = "none"
+    }
+  </script>
+</body>
+</html>

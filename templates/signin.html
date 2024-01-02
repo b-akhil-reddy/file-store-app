@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/static/main.css">
+  <script src="/static/form.js"></script>
+</head>
+<body>
+
+  <form enctype="multipart/form-data" data-location="/user" action="/signin" method="post" onsubmit="return submitForm(event)">
+    <label>SIGN - IN</label> <br/>
+    <label for ="uname">USERNAME</label> <br/>
+        <input type="text" id="uname" name="uname" required/>
+        <span class="inp-err"></span>
+
+    <label for ="passwd">PASSWORD</label> <br/>
+        <input type="password" id="passwd" name="passwd" required/>
+        <span class="inp-err"></span>
+    <input type="submit" value="SIGN-IN"/>
+    <label>
+      Don't have a account? <a href="/signup">Sign-up here</a> <br>
+      Want to change password? <a href="/chpasswd">Change it here</a>
+    </label>
+  </form>
+  <div id="msg"></div>
+  <script>
+    url = new URL(document.URL)
+    error = url.searchParams.get("error")
+    success = url.searchParams.get("success")
+    ele = document.getElementById("msg")
+    if(error){
+      ele.classList= "msg error"
+      ele.innerHTML = error
+    }
+    if(success){
+      ele.classList= "msg success"
+      ele.innerHTML = success
+    }
+    ele.onclick = () => {
+      ele.style.display = "none"
+    }
+  </script>
+</body>
+</html>

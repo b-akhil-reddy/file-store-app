@@ -1,0 +1,6 @@
+google-cloud-storage
+Flask
+Pillow
+python-dotenv
+pymysql
+sqlalchemy

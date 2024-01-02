@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/static/main.css">
+  <script src="/static/form.js"></script>
+</head>
+<body>
+
+  {% if uname %}
+  <form enctype="multipart/form-data" data-location="/user" action="/chpasswd" method="post" onsubmit="return submitForm(event)">
+        <a href="/user" class="btn update">HOME</a>
+        <a href="/signout" class="btn delete">SIGN-OUT</a>
+        <h1>Hello, {{uname}}!!!</h1>
+  {% else %}
+  <form enctype="multipart/form-data" data-location="/" action="/chpasswd" method="post" onsubmit="return submitForm(event)">
+  {% endif %}
+    <label>CHANGE - PASSWORD</label> <br/>
+    <label for ="uname">USERNAME</label> <br/>
+        <input type="text" id="uname" name="uname" value="{{uname}}" required/>
+        <span class="inp-err"></span>
+    <label for ="opasswd">OLD PASSWORD</label> <br/>
+        <input type="password" id="opasswd" name="opasswd" required/>
+        <span class="inp-err"></span>
+    <label for ="npasswd">NEW PASSWORD</label> <br/>
+        <input type="password" id="npasswd" name="npasswd" required/>
+        <span class="inp-err"></span>
+    <label for ="cpasswd">CONFIRM NEW PASSWORD</label> <br/>
+        <input type="password" id="cpasswd" name="cpasswd" required/>
+        <span class="inp-err"></span>
+    <input type="submit" value="CHANGE PASSWORD"/>
+  </form>
+  <div id="msg"></div>
+  <script>
+    url = new URL(document.URL)
+    error = url.searchParams.get("error")
+    success = url.searchParams.get("success")
+    ele = document.getElementById("msg")
+    if(error){
+      ele.classList= "msg error"
+      ele.innerHTML = error
+    }
+    if(success){
+      ele.classList= "msg success"
+      ele.innerHTML = success
+    }
+    ele.onclick = () => {
+      ele.style.display = "none"
+    }
+  </script>
+</body>
+</html>

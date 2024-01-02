@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image {
+            background-position: 50%;
+            background-image: url("/image/{{fileid}}");
+            background-size: cover;
+            margin: auto;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <form>
+      <a href="/user" class="btn update">HOME</a>
+      <a href="/signout" class="btn delete">SIGN-OUT</a>
+      <a href="/chpasswd" class="btn safe">CHANGE-PASSWORD</a>
+      <h1>Hello, {{uname}}!!!</h1>
+    </form>
+    <div class="content">
+        <h2>File: {{filename}}</h2>
+        <a href="/delete/{{fileid}}" class="btn delete">Delete File</a>
+        <a href="/update/{{fileid}}" class="btn update">Update File</a>
+        <div class="image"></div>
+    </div>
+    <table>
+        <tr><th>Attribute</th><th>Value</th></tr>
+        {% for key in filedata %}
+            {% if key not in [ "exif_data", "bucket", "loc_in_bucket", "userid" ] %}
+                <tr><td>{{key}}</td><td>{{filedata[key]}}</td></tr>
+            {% endif %}
+        {% endfor %}
+        {% for key in filedata["exif_data"] %}  
+            <tr><td>{{key}}</td><td>{{filedata["exif_data"][key]}}</td></tr>
+        {% endfor %}
+    </table>
+  <div id="msg"></div>
+  <script>
+    url = new URL(document.URL)
+    error = url.searchParams.get("error")
+    success = url.searchParams.get("success")
+    ele = document.getElementById("msg")
+    if(error){
+      ele.classList= "msg error"
+      ele.innerHTML = error
+    }
+    if(success){
+      ele.classList= "msg success"
+      ele.innerHTML = success
+    }
+    ele.onclick = () => {
+      ele.style.display = "none"
+    }
+  </script>
+
+</body>
+</html>

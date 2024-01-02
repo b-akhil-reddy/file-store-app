@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+  <form enctype="multipart/form-data" action="/upload" method="post">
+    
+    <a href="/user" class="btn update">HOME</a>
+    <a href="/signout" class="btn delete">SIGN-OUT</a>
+    <a href="/chpasswd" class="btn safe">CHANGE-PASSWORD</a>
+    <h1>Hello, {{uname}}!!!</h1>
+    <label>UPLOAD FILES</label> <br/>
+    <label for ="file">CHOOSE FILE TO UPLOAD</label> <br/>
+        <input type="file" id="file" name="form_file" accept="image/jpeg, image/png"/> <br/>
+        <input type="submit" value="Upload"/>
+    <label>UPLOADED FILES</label> <br/>
+    {% for file in files %}
+        <a href="/files/{{file}}">{{files[file]}}</a><br>
+    {% endfor %}
+  </form>
+  <div id="msg"></div>
+  <script>
+    url = new URL(document.URL)
+    error = url.searchParams.get("error")
+    success = url.searchParams.get("success")
+    ele = document.getElementById("msg")
+    if(error){
+      ele.classList= "msg error"
+      ele.innerHTML = error
+    }
+    if(success){
+      ele.classList= "msg success"
+      ele.innerHTML = success
+    }
+    ele.onclick = () => {
+      ele.style.display = "none"
+    }
+  </script>
+</body>
+</html>
