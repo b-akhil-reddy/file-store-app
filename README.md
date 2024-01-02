@@ -1,6 +1,6 @@
 File Store App
 ---
-Designed to securely store, read, update, and delete files from GCP cloud-storage and their metadata and user details are stored in MySQL database. The application can easily be deploy on-premise or on the cloud. As the application is containerized it makes it much easier.
+Designed to securely store, read, update, and delete files from GCP cloud-storage. The metadata of files and user details are stored in MySQL database. The application can easily be deploy on-premise or on the cloud. As the application is containerized it makes it much easier.
 
 Running the application
 ---
